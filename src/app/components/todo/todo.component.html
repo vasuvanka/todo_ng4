@@ -1,11 +1,20 @@
-<h2>todo list</h2>
-<p>
-  <input type="text" [(ngModel)]="task" placeholder="Enter Your Task">
-  <button (click)="submitTask(task)">Add Task</button>
-</p>
-<br>
-<ol>
-  <li *ngFor="let t of tasks;let i=index">{{t.name}}-
-    <button (click)="removeTask(i)">remove task</button>
-  </li>
-</ol>
+
+
+<form class="example-form">
+    <table class="example-full-width" cellspacing="0"><tr>
+        <td><md-form-field class="example-full-width">
+            <input mdInput placeholder="Enter Your Task" [(ngModel)]="task" name="task">
+        </md-form-field></td>
+        <td><button md-raised-button color="primary" (click)="submitTask(task)" name="add" style="margin-left: 100px;">Add Task</button></td>
+        </tr>
+    </table>
+</form>
+
+
+
+<div class="example-container mat-elevation-z8" *ngFor="let t of tasks ;let i=index">
+    <md-card ><button md-mini-fab color="warn" (click)="removeTask(i)" name="remove">X</button><label style="margin-left: 1em;">{{t.name}}</label></md-card>
+</div>
+
+
+

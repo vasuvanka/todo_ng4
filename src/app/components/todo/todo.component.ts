@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, ViewChild,OnInit} from '@angular/core';
 import {TodoService} from '../../services/todo.service';
 
 @Component({
@@ -10,12 +10,15 @@ export class TodoComponent implements OnInit {
   task = '';
   tasks = [];
 
+    @ViewChild('filter') filter: ElementRef;
+
+    ngOnInit() {
+        this.getTasks();
+    }
+
   constructor(private todoService: TodoService) {
   }
 
-  ngOnInit() {
-    this.getTasks();
-  }
 
   submitTask(t: string) {
     this.todoService.postData({name: t}).subscribe((task1) => {
@@ -38,3 +41,6 @@ export class TodoComponent implements OnInit {
   }
 
 }
+
+
+
