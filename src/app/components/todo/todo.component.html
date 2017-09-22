@@ -12,9 +12,18 @@
 
 
 
-<div class="example-container mat-elevation-z8" *ngFor="let t of tasks ;let i=index">
-    <md-card ><button md-mini-fab color="warn" (click)="removeTask(i)" name="remove">X</button><label style="margin-left: 1em;">{{t.name}}</label></md-card>
-</div>
+<!--<div class="example-container mat-elevation-z8" *ngFor="let t of tasks ;let i=index">-->
+    <!--<md-card ><button md-mini-fab color="warn" (click)="removeTask(i)" name="remove">X</button><label style="margin-left: 1em;">{{t.name}}</label></md-card>-->
+<!--</div>-->
+
+<!--<hr>-->
 
 
-
+<md-list>
+    <h3 md-subheader>Tasks Pending</h3>
+    <md-list-item *ngFor="let t of tasks ;let i=index">
+        <md-card ><button md-mini-fab color="warn" (click)="removeTask(i)" name="remove">X</button><label style="margin-left: 1em;">{{t.name}}</label></md-card>
+    </md-list-item>
+    <md-divider></md-divider>
+</md-list>
+<app-spinner></app-spinner>
